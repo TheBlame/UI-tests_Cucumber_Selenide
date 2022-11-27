@@ -10,6 +10,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class AbstractPage {
+    @ElementName("Account button")
+    @FindBy(how = How.XPATH, using = "//p[contains(text(),'Личный Кабинет')]")
+    private SelenideElement accountButton;
+
+    @ElementName("Constructor button")
+    @FindBy(how = How.XPATH, using = ".//a[@href='/']")
+    private SelenideElement constructorButton;
+
+    @ElementName("Logo")
+    @FindBy(how = How.CLASS_NAME, using = "AppHeader_header__logo__2D0X2")
+    private SelenideElement logoButton;
+
     public SelenideElement get(String elementName) {
         Class<?> clazz = this.getClass();
         List<Field> fields = new ArrayList<>();
@@ -38,8 +50,4 @@ public abstract class AbstractPage {
         }
         return fields;
     }
-
-    @ElementName("Account button")
-    @FindBy(how = How.XPATH, using = "//p[contains(text(),'Личный Кабинет')]")
-    private SelenideElement accountButton;
 }
